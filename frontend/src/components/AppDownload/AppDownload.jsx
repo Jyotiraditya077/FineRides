@@ -85,8 +85,8 @@ const AppDownload = () => {
           enjoy rides at your doorstep, track your bookings, and experience a smooth, secure journey.
         </p>
         <div className="app-buttons">
-          <a href="/about" className="btn app-store">Our Story</a>
-          <a href="/contact" className="btn play-store">Reach Us</a>
+          <a href="#/about" className="btn app-store">Our Story</a>
+          <a href="#/contact" className="btn play-store">Reach Us</a>
         </div>
       </div>
     </section>

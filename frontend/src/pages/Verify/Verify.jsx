@@ -16,7 +16,7 @@ const Verify = () => {
     try {
       const response = await axios.post(url + "/api/order/verify", { success, orderId });
       if (response.data.success) {
-        navigate("/myorders"); // Redirect to MyBookings in case you rename it
+        navigate("#/myorders"); // Redirect to MyBookings in case you rename it
       } else {
         navigate("/");
       }

@@ -36,9 +36,9 @@ const Footer = () => {
           <h2>COMPANY</h2>
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/about">About us</a></li>
-            <li><a href="/myrentals">My Bookings</a></li>
-            <li><a href="/privacy-policy">Privacy policy</a></li>
+            <li><a href="#/about">About us</a></li>
+            <li><a href="#/myrentals">My Bookings</a></li>
+            <li><a href="#/privacy-policy">Privacy policy</a></li>
           </ul>
         </div>
 
