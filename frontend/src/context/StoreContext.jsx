@@ -5,7 +5,7 @@ import axios from "axios";
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
-  const url = "http://localhost:4000";
+  const url = "https://finerides-backend.onrender.com";
 
   const [vehicleList, setVehicleList] = useState([]);
   const [cartItems, setCartItems] = useState({});
