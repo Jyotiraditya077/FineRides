@@ -6,7 +6,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // Config
 const currency = "inr";
-const frontend_URL = "http://localhost:5173";
+const frontend_URL = "https://finerides.onrender.com";
 const deliveryCharge = 0;
 
 // ✅ Place Order (Online Payment)
