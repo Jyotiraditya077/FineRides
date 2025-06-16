@@ -27,42 +27,41 @@ const Navbar = ({ setShowLogin }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleVehiclesClick = () => {
+    if (location.pathname === '/about' || location.pathname === '/contact') {
+      navigate('/', { hash: '#explore-menu' });
+    }
+    setMenu("vehicles");
+  };
+
   const handleContactClick = () => {
-    navigate('/#/contact');
+    navigate('/contact');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setMenu("contact");
   };
 
-  const handleAboutClick = () => {
-    navigate('/#/about');
-    setMenu("about");
-  };
-
-  const handleVehiclesClick = () => {
-    navigate('/#explore-menu');
-    setMenu("vehicles");
-  };
+  useEffect(() => {
+    if (location.pathname === '/about' || location.pathname === '/contact') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location.pathname]);
 
   useEffect(() => {
     if (location.hash === '#explore-menu') {
       setMenu("vehicles");
-    } else if (location.pathname.includes('contact')) {
-      setMenu("contact");
-    } else if (location.pathname.includes('about')) {
-      setMenu("about");
-    } else {
-      setMenu("home");
     }
-  }, [location]);
+  }, [location.hash]);
 
   return (
     <div className='navbar'>
       <Link to='/' onClick={handleLogoClick}>
-        <img
-          className="logo"
-          src={assets.logo_3}
-          alt="Finerides Logo"
-          style={{ height: '50px', width: 'auto' }}
-        />
+      <img
+  className="logo"
+  src={assets.logo_3}
+  alt="Finerides Logo"
+  style={{ height: '50px', width: 'auto' }}
+/>
+
       </Link>
 
       <ul className="navbar-menu">
@@ -72,19 +71,23 @@ const Navbar = ({ setShowLogin }) => {
           </Link>
         </li>
         <li>
-          <a href="#explore-menu" onClick={handleVehiclesClick} className={menu === "vehicles" ? "active" : ""}>
+          <a
+            href={location.pathname === '/about' || location.pathname === '/contact' ? '/' : '/#explore-menu'}
+            onClick={handleVehiclesClick}
+            className={menu === "vehicles" ? "active" : ""}
+          >
             Vehicles
           </a>
         </li>
         <li>
-          <a onClick={handleAboutClick} className={menu === "about" ? "active" : ""}>
+          <Link to="/about" onClick={() => setMenu("about")} className={menu === "about" ? "active" : ""}>
             About
-          </a>
+          </Link>
         </li>
         <li>
-          <a onClick={handleContactClick} className={menu === "contact" ? "active" : ""}>
+          <Link to="/contact" onClick={handleContactClick} className={menu === "contact" ? "active" : ""}>
             Contact
-          </a>
+          </Link>
         </li>
       </ul>
 
@@ -109,7 +112,7 @@ const Navbar = ({ setShowLogin }) => {
               onClick={() => setShowDropdown(!showDropdown)}
             />
             <ul className={`navbar-profile-dropdown ${showDropdown ? 'show' : ''}`}>
-              <li onClick={() => navigate('/#/myrentals')}>
+              <li onClick={() => navigate('/myrentals')}>
                 <img src={assets.bag_icon} alt="Orders" />
                 <p>My Rentals</p>
               </li>
