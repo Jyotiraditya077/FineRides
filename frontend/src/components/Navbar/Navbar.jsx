@@ -38,21 +38,9 @@ const Navbar = ({ setShowLogin }) => {
   };
 
   const handleVehiclesClick = () => {
-    if (!location.hash || location.pathname !== '/')
-      navigate('/#explore-menu');
-  
-    setTimeout(() => {
-      const section = document.getElementById('explore-menu');
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        window.location.hash = '#explore-menu';
-      }
-    }, 300);
-  
+    navigate('/#explore-menu');
     setMenu("vehicles");
   };
-  
 
   useEffect(() => {
     if (location.hash === '#explore-menu') {
