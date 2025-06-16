@@ -38,7 +38,19 @@ const Navbar = ({ setShowLogin }) => {
   };
 
   const handleVehiclesClick = () => {
-    navigate('/#explore-menu');
+    if (!location.hash || location.pathname !== '/')
+      navigate('/#explore-menu');
+
+    // Ensure scrolling after DOM is updated
+    setTimeout(() => {
+      const section = document.getElementById('explore-menu');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.hash = '#explore-menu';
+      }
+    }, 300);
+
     setMenu("vehicles");
   };
 
@@ -72,19 +84,31 @@ const Navbar = ({ setShowLogin }) => {
           </Link>
         </li>
         <li>
-          <a href="#explore-menu" onClick={handleVehiclesClick} className={menu === "vehicles" ? "active" : ""}>
+          <button
+            onClick={handleVehiclesClick}
+            className={menu === "vehicles" ? "active" : ""}
+            style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer' }}
+          >
             Vehicles
-          </a>
+          </button>
         </li>
         <li>
-          <a onClick={handleAboutClick} className={menu === "about" ? "active" : ""}>
+          <button
+            onClick={handleAboutClick}
+            className={menu === "about" ? "active" : ""}
+            style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer' }}
+          >
             About
-          </a>
+          </button>
         </li>
         <li>
-          <a onClick={handleContactClick} className={menu === "contact" ? "active" : ""}>
+          <button
+            onClick={handleContactClick}
+            className={menu === "contact" ? "active" : ""}
+            style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer' }}
+          >
             Contact
-          </a>
+          </button>
         </li>
       </ul>
 
