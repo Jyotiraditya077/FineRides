@@ -1,0 +1,120 @@
+.place-order {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 50px;
+    margin: 100px 0;
+}
+
+.place-order-left {
+    width: 100%;
+    max-width: max(30%, 500px);
+}
+
+.place-order-left .title {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: #1f2937; /* dark slate for clarity */
+}
+
+.place-order-left input {
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    outline-color: #2563eb; /* blue outline */
+    background-color: #f8fafc;
+}
+
+.place-order-left .multi-field {
+    display: flex;
+    gap: 10px;
+}
+
+.place-order-right {
+    width: 100%;
+    max-width: max(40%, 500px);
+}
+
+.place-order-submit {
+    margin-top: 40px;
+    border: none;
+    background-color: #2563eb; /* blue for action */
+    color: white;
+    padding: 12px 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.place-order-submit:hover {
+    background-color: #1d4ed8;
+}
+
+.payment {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.payment h2 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #1e293b;
+}
+
+.payment .payment-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #2563eb;
+    padding: 15px;
+    border-radius: 6px;
+    min-width: 300px;
+    cursor: pointer;
+    background-color: #f1f5f9;
+    transition: background-color 0.2s ease;
+}
+
+.payment .payment-option:hover {
+    background-color: #e0f2fe;
+}
+
+.cart-total {
+    background-color: #f8fafc;
+    padding: 20px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+
+.cart-total h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+.cart-total-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+@media (max-width: 700px) {
+    .place-order {
+        flex-direction: column;
+    }
+
+    .place-order-left, .place-order-right {
+        max-width: 100%;
+    }
+
+    .payment .payment-option {
+        width: 100%;
+    }
+}

@@ -1,0 +1,110 @@
+.explore-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.explore-menu h1 {
+  color: #1c1c1c;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.explore-menu-text {
+  max-width: 70%;
+  color: #606060;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Container for the menu list */
+.explore-menu-list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  margin: 20px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px 16px 10px;
+  scroll-padding-left: 16px;
+  box-sizing: border-box;
+
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.explore-menu-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Menu list item */
+.explore-menu-list-item {
+  transition: all 0.3s ease;
+  padding: 10px;
+  border-radius: 16px;
+  cursor: pointer;
+  background-color: white;
+  position: relative;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  min-width: 100px;
+  border: 3px solid transparent; /* reserve space for active state */
+}
+
+/* Item image */
+.explore-menu-list-item img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+}
+
+/* Active category item */
+.explore-menu-list-item.active {
+  border: 3px solid #3b82f6;
+  background: linear-gradient(to bottom right, #eff6ff, #dbeafe);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+/* Item text */
+.explore-menu-list-item p {
+  margin-top: 10px;
+  color: #3f3f3f;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Bottom divider */
+.explore-menu hr {
+  margin: 20px 0;
+  height: 2px;
+  background-color: #e5e7eb;
+  border: none;
+}
+
+/* Responsive: tablets & below */
+@media (max-width: 1050px) {
+  .explore-menu-text {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .explore-menu-list-item img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .explore-menu-list-item p {
+    font-size: 14px;
+  }
+}

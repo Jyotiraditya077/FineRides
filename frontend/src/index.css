@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #f4f6f8; /* Light grey background for a modern feel */
+  color: #1c1c1c; /* Standard readable text */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app {
+  width: 80%;
+  margin: auto;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@media (max-width: 1050px) {
+  .app {
+    width: 90%;
+  }
+}
+
+/* Custom scrollbar for WebKit-based browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a; /* Slightly darker track (optional) */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1e293b; /* Same as navbar */
+  border-radius: 10px;
+  border: 2px solid #0f172a; /* Optional border around thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #334155; /* Slightly lighter on hover */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1e293b #0f172a;
+}

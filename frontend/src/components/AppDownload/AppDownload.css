@@ -1,0 +1,103 @@
+/* FineRides/frontend/src/components/AppDownload/AppDownload.css */
+
+.app-download {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  background-color: #f5f7fa;
+  text-align: center;
+}
+
+/* 🚗 Logo Carousel with horizontal strip and fade edges */
+.carousel-wrapper {
+  width: 100%;
+  background-color: #eaeff5;
+  padding: 0.5rem 0; /* Reduced vertical padding */
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+/* 🖼️ Individual logo styling (smaller size) */
+.carousel-logo {
+  width: 50px;  /* reduced width */
+  height: 50px; /* reduced height */
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  display: block;
+  margin: auto;
+}
+
+.carousel-logo:hover {
+  transform: scale(1.05);
+}
+
+/* 🚘 Vehicle Image Stack Section */
+.app-download-image {
+  margin-bottom: 1.5rem;
+}
+
+/* 📱 Content Section */
+.app-download-content {
+  max-width: 600px;
+}
+
+.app-download-content h2 {
+  font-size: 1.75rem;
+  color: #111827;
+}
+
+.app-download-content p {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+/* 📲 App Download Buttons */
+.app-buttons {
+  margin-top: 1.25rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  background-color: #111827;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #1f2937;
+  transform: translateY(-2px);
+}
+
+/* 📱 Responsive Styling */
+@media (max-width: 600px) {
+  .carousel-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .app-download-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .app-download-content p {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}

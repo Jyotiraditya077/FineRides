@@ -1,0 +1,22 @@
+.verify {
+    min-height: 60vh;
+    display: grid;
+    background-color: #f4f6f8; /* subtle background for better visual balance */
+  }
+  
+  .verify .spinner {
+    width: 100px;
+    height: 100px;
+    place-self: center;
+    border: 5px solid #ccc;
+    border-top-color: #0074D9; /* changed from tomato to a professional blue */
+    border-radius: 50%;
+    animation: rotate 1s linear infinite;
+  }
+  
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
