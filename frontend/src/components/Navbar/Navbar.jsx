@@ -40,8 +40,7 @@ const Navbar = ({ setShowLogin }) => {
   const handleVehiclesClick = () => {
     if (!location.hash || location.pathname !== '/')
       navigate('/#explore-menu');
-
-    // Ensure scrolling after DOM is updated
+  
     setTimeout(() => {
       const section = document.getElementById('explore-menu');
       if (section) {
@@ -50,9 +49,10 @@ const Navbar = ({ setShowLogin }) => {
         window.location.hash = '#explore-menu';
       }
     }, 300);
-
+  
     setMenu("vehicles");
   };
+  
 
   useEffect(() => {
     if (location.hash === '#explore-menu') {
@@ -84,31 +84,19 @@ const Navbar = ({ setShowLogin }) => {
           </Link>
         </li>
         <li>
-          <button
-            onClick={handleVehiclesClick}
-            className={menu === "vehicles" ? "active" : ""}
-            style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer' }}
-          >
+          <a href="#explore-menu" onClick={handleVehiclesClick} className={menu === "vehicles" ? "active" : ""}>
             Vehicles
-          </button>
+          </a>
         </li>
         <li>
-          <button
-            onClick={handleAboutClick}
-            className={menu === "about" ? "active" : ""}
-            style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer' }}
-          >
+          <a onClick={handleAboutClick} className={menu === "about" ? "active" : ""}>
             About
-          </button>
+          </a>
         </li>
         <li>
-          <button
-            onClick={handleContactClick}
-            className={menu === "contact" ? "active" : ""}
-            style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer' }}
-          >
+          <a onClick={handleContactClick} className={menu === "contact" ? "active" : ""}>
             Contact
-          </button>
+          </a>
         </li>
       </ul>
 
