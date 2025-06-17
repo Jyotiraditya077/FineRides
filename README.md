@@ -1,7 +1,7 @@
 # FineRides
 
 <p align="center">
-  <img src="https://github.com/Jyotiraditya077/FineRides/blob/main/admin/public/logo.png" alt="FineRides Logo" width="250px">
+  <img src="https://github.com/Jyotiraditya077/FineRides/blob/main/admin/public/logo.png" alt="FineRides Logo" width="170px">
 </p>
 
 **FineRides** is a vehicle rental platform where users can browse a range of bikes and cars, select rental durations, and place secure bookings. It offers a seamless UI, dynamic vehicle management, and checkout powered by Stripe.
