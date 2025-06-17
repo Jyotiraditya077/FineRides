@@ -1,18 +1,18 @@
 import express from 'express';
 import authMiddleware from '../middleware/auth.js';
-import { 
-  listOrders, 
-  placeOrder, 
-  updateStatus, 
-  userOrders, 
-  verifyOrder, 
-  placeOrderCod 
+import {
+  listOrders,
+  placeOrder,
+  updateStatus,
+  userOrders,
+  verifyOrder,
+  placeOrderCod
 } from '../controllers/orderController.js';
 
 const orderRouter = express.Router();
 
-// ✅ Protected: Admin: List all vehicle rental orders
-orderRouter.get("/list", authMiddleware, listOrders);
+// ✅ Public: Admin: List all vehicle rental orders
+orderRouter.get("/list", listOrders);
 
 // User: Get own vehicle rental history
 orderRouter.post("/userorders", authMiddleware, userOrders);
