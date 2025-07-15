@@ -10,7 +10,7 @@ const images = [
   '/header_img3.jpg',
   '/header_img4.webp',
   '/header_img5.jpg',
-  '/header_img6_imresizer.jpg'
+  '/header_img6.jpg'
 ];
 
 const Header = () => {
