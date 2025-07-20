@@ -1,17 +1,40 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './VehicleDisplay.css';
 import VehicleItem from '../VehicleItem/VehicleItem';
+import SkeletonVehicleItem from '../VehicleItem/SkeletonVehicleItem';
 import { assets } from '../../assets/assets';
 import { StoreContext } from '../../Context/StoreContext';
 
 const VehicleDisplay = ({ category }) => {
   const { vehicle_list } = useContext(StoreContext);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className='vehicle-display' id='vehicle-display'>
+        <h2>Top vehicles near you</h2>
+        <div className="vehicle-display-list">
+          {[...Array(8)].map((_, index) => (
+            <SkeletonVehicleItem key={index} />
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   if (!vehicle_list || vehicle_list.length === 0) {
     return (
       <div className='vehicle-display' id='vehicle-display'>
         <h2>Top vehicles near you</h2>
-        <p className="vehicle-loading">Loading vehicles...</p>
+        <p className="vehicle-loading">No vehicles available.</p>
       </div>
     );
   }
