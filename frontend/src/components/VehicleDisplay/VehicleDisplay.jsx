@@ -34,7 +34,11 @@ const VehicleDisplay = ({ category }) => {
     return (
       <div className='vehicle-display' id='vehicle-display'>
         <h2>Top vehicles near you</h2>
-        <p className="vehicle-loading">No vehicles available.</p>
+        <div className="vehicle-display-list">
+          {[...Array(8)].map((_, index) => (
+            <SkeletonVehicleItem key={index} />
+          ))}
+        </div>
       </div>
     );
   }
