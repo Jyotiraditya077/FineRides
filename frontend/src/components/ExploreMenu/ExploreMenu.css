@@ -92,19 +92,130 @@
   border: none;
 }
 
+.rental-toggle-row {
+  display: flex;
+  gap: 12px;
+  margin: 18px 0 0 0;
+  justify-content: flex-start;
+}
+.rental-toggle-btn {
+  padding: 10px 32px;
+  border-radius: 999px;
+  border: 2px solid #2563eb;
+  background: #f3f6fa;
+  color: #2563eb;
+  font-weight: 700;
+  font-size: 17px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.06);
+  outline: none;
+}
+.rental-toggle-btn.active {
+  background: linear-gradient(90deg, #2563eb 60%, #60a5fa 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.13);
+}
+.rental-toggle-btn:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 2px #93c5fd;
+}
+
+.datewise-inputs {
+  display: flex;
+  gap: 32px;
+  margin: 0 0 0 0;
+  align-items: flex-end;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(37,99,235,0.07);
+  padding: 14px 18px;
+  flex-wrap: wrap;
+  max-width: 700px;
+  min-width: 0;
+  width: 60%;
+  margin-left: 0;
+  margin-right: 0;
+}
+.datewise-inputs label {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  color: #222;
+  gap: 7px;
+  min-width: 180px;
+}
+.datewise-inputs input[type="datetime-local"] {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1.5px solid #d1d5db;
+  font-size: 16px;
+  margin-top: 2px;
+  background: #f9fafb;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.datewise-inputs input[type="datetime-local"]:focus {
+  border: 1.5px solid #2563eb;
+  box-shadow: 0 0 0 2px #93c5fd;
+  outline: none;
+}
+
 /* Responsive: tablets & below */
 @media (max-width: 1050px) {
   .explore-menu-text {
     max-width: 100%;
     font-size: 14px;
   }
-
   .explore-menu-list-item img {
     width: 70px;
     height: 70px;
   }
-
   .explore-menu-list-item p {
     font-size: 14px;
+  }
+  .datewise-inputs {
+    gap: 16px;
+    padding: 10px 6px;
+    width: 95%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .datewise-inputs label {
+    min-width: 120px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile: stack date pickers vertically, but toggle buttons side by side */
+@media (max-width: 600px) {
+  .rental-toggle-row {
+    flex-direction: row;
+    gap: 10px;
+    align-items: stretch;
+    justify-content: center;
+  }
+  .rental-toggle-btn {
+    width: 50%;
+    font-size: 15px;
+    padding: 10px 0;
+  }
+  .datewise-inputs {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+    padding: 22px 10px;
+    box-shadow: 0 1px 6px rgba(37,99,235,0.08);
+    width: 98%;
+    max-width: 100%;
+  }
+  .datewise-inputs label {
+    width: 100%;
+    min-width: unset;
+    font-size: 13px;
+  }
+  .datewise-inputs input[type="datetime-local"] {
+    font-size: 14px;
+    padding: 8px 8px;
   }
 }

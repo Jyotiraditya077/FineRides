@@ -6,7 +6,7 @@ import { assets } from '../../assets/assets';
 import { StoreContext } from '../../Context/StoreContext';
 
 const VehicleDisplay = ({ category }) => {
-  const { vehicle_list } = useContext(StoreContext);
+  const { vehicle_list, rentalMode, rentalHours } = useContext(StoreContext);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -47,21 +47,25 @@ const VehicleDisplay = ({ category }) => {
     <div className='vehicle-display' id='vehicle-display'>
       <h2>Top vehicles near you</h2>
 
-      <div className="vehicle-display-info">
-        <p>
-          <img src={assets.remove_icon_red} alt="Remove hour" />
-          <span>Reduce rental duration (in hours)</span>
-        </p>
-        <p>
-          <img src={assets.add_icon_green} alt="Add hour" />
-          <span>Increase rental duration (in hours)</span>
-        </p>
-      </div>
+      {rentalMode === 'hourly' && (
+        <>
+          <div className="vehicle-display-info">
+            <p>
+              <img src={assets.remove_icon_red} alt="Remove hour" />
+              <span>Reduce rental duration (in hours)</span>
+            </p>
+            <p>
+              <img src={assets.add_icon_green} alt="Add hour" />
+              <span>Increase rental duration (in hours)</span>
+            </p>
+          </div>
+        </>
+      )}
 
-      <div className="vehicle-display-notice">
-        ⚠️ Delivery will be made to your provided address within 45 minutes to 1 hour.
-        We strive for timely delivery, but exact timing is not guaranteed. Please plan your rental accordingly.
-      </div>
+          <div className="vehicle-display-notice">
+            ⚠️ Delivery will be made to your provided address within 45 minutes to 1 hour.
+            We strive for timely delivery, but exact timing is not guaranteed. Please plan your rental accordingly.
+          </div>
 
       <div className='vehicle-display-list'>
         {vehicle_list.map((item) => {
@@ -78,6 +82,8 @@ const VehicleDisplay = ({ category }) => {
               desc={item.description}
               price={item.hourlyRate}
               id={item._id}
+              rentalMode={rentalMode}
+              rentalHours={rentalHours}
             />
           );
         })}

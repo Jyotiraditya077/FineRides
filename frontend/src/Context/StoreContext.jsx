@@ -11,6 +11,25 @@ const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [token, setToken] = useState("");
 
+  // Add rental mode and datewise state
+  const [rentalMode, setRentalMode] = useState('hourly'); // 'hourly' or 'datewise'
+  const [pickupDate, setPickupDate] = useState('');
+  const [dropDate, setDropDate] = useState('');
+  const [rentalHours, setRentalHours] = useState(1); // default 1 hour
+
+  // Calculate rental hours when dates change (datewise mode)
+  useEffect(() => {
+    if (rentalMode === 'datewise' && pickupDate && dropDate) {
+      const start = new Date(pickupDate);
+      const end = new Date(dropDate);
+      const diffMs = end - start;
+      const diffHours = Math.max(1, Math.round(diffMs / (1000 * 60 * 60)));
+      setRentalHours(diffHours);
+    } else if (rentalMode === 'hourly') {
+      setRentalHours(1);
+    }
+  }, [rentalMode, pickupDate, dropDate]);
+
   const currency = "₹";
   const deliveryCharge = 0;
 
@@ -74,7 +93,9 @@ const StoreContextProvider = (props) => {
         );
         if (vehicle && cartItems[id] > 0) {
           const price = vehicle.hourlyRate || vehicle.price || 0;
-          totalAmount += price * cartItems[id];
+          // Use rentalHours for all items in datewise mode
+          const hours = rentalMode === 'datewise' ? rentalHours : cartItems[id];
+          totalAmount += price * hours;
         }
       } catch (error) {
         console.error("Error calculating total:", error);
@@ -151,6 +172,15 @@ const StoreContextProvider = (props) => {
     setCartItems,
     currency,
     deliveryCharge,
+    // Rental mode additions
+    rentalMode,
+    setRentalMode,
+    pickupDate,
+    setPickupDate,
+    dropDate,
+    setDropDate,
+    rentalHours,
+    setRentalHours,
   };
 
   return (

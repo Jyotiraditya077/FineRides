@@ -11,7 +11,9 @@ const Cart = () => {
     getTotalCartAmount,
     url,
     currency,
-    deliveryCharge
+    deliveryCharge,
+    rentalMode,
+    rentalHours
   } = useContext(StoreContext);
 
   const navigate = useNavigate();
@@ -40,14 +42,17 @@ const Cart = () => {
         <hr />
         {vehicle_list.map((item, index) => {
           if (cartItems[item._id] > 0) {
+            // Determine hours and total based on mode
+            const hours = rentalMode === 'datewise' ? rentalHours : cartItems[item._id];
+            const total = (item.price || item.hourlyRate) * hours;
             return (
               <div key={index}>
                 <div className="cart-items-title cart-items-item">
                   <img src={url + "/images/" + item.image} alt={item.name} />
                   <p>{item.name}</p>
                   <p>{currency}{item.price}</p>
-                  <div>{cartItems[item._id]}</div>
-                  <p>{currency}{item.price * cartItems[item._id]}</p>
+                  <div>{hours}{rentalMode === 'datewise' && <span style={{fontSize:'12px',color:'#3b82f6'}}> (datewise)</span>}</div>
+                  <p>{currency}{total}</p>
                   <p className='cart-items-remove-icon' onClick={() => removeFromCart(item._id)}>x</p>
                 </div>
                 <hr />
